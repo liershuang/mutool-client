@@ -1,7 +1,7 @@
 package com.mutool.javafx;
 
 import cn.hutool.core.util.StrUtil;
-import com.mutool.core.util.javafx.JavaFxSystemUtil;
+import com.mutool.javafx.util.JavaFxSystemUtil;
 import javafx.application.Platform;
 import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
