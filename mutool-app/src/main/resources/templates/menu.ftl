@@ -8,13 +8,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../layui/css/layui.css" media="all">
 </head>
-<body>
+<body class="layui-layout-body">
 
-<ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo" id="menuDiv">
-    暂无数据
-</ul>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">mutool工具集</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">github地址</a></li>
+            <li class="layui-nav-item"><a href="https://gitee.com/liershuang/mutool-client" target="_blank">gitee地址</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    小木
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="https://www.cnblogs.com/leskang/" target="_blank">博客园</a></dd>
+                    <dd><a href="https://liershuang.gitee.io/" target="_blank">个人博客</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退出</a></li>
+        </ul>
+    </div>
 
-<div id="menuContent"></div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" id="menuDiv" lay-filter="test">
+                暂无数据
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div id="menuContent" style="padding: 15px;"></div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+
 
 <script src="../js/jquery-3.5.1.min.js" charset="utf-8"></script>
 <script src="../layui/layui.js" charset="utf-8"></script>
@@ -50,7 +96,7 @@
         $.each(menuList, function (index, value) {
             if (value.childMenuList.length > 0) {
                 menuHtml +=
-                    '<li class="layui-nav-item">' +
+                    '<li class="layui-nav-item layui-nav-itemed">' +
                     '    <a href="javascript:;">' + value.menuName + '</a>' +
                     '    <dl class="layui-nav-child">';
 
@@ -65,7 +111,7 @@
                     '    </dl>' +
                     '</li>';
             } else {
-                menuHtml += '<li class="layui-nav-item"><a href="javascript:;" onclick="openMenu(\'' + value.menuType + '\',\'' + value.url + '\');">' + value.menuName + '</a></li>';
+                menuHtml += '<li class="layui-nav-item layui-nav-itemed"><a href="javascript:;" onclick="openMenu(\'' + value.menuType + '\',\'' + value.url + '\');">' + value.menuName + '</a></li>';
             }
         });
         return menuHtml;
